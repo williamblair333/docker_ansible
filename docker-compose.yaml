@@ -12,7 +12,9 @@ services:
 
         volumes:
             - ./ansible.cfg:/etc/ansible/ansible.cfg:rw
-            - ./hosts:/etc/ansible/hosts:rw     
+            - ./hosts:/etc/ansible/hosts:rw
+            - ./collections:/home/ansible/.ansible/collections/ansible_collections:rw
+            
         stdin_open: true # docker run -i
         tty: true        # docker run -t
 networks:

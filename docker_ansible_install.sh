@@ -44,6 +44,7 @@ RUN useradd -m -s /bin/bash "ansible" \
     && echo ""ansible":"ansible"" | chpasswd \
     && /usr/sbin/usermod -aG sudo "ansible"
 
+RUN mkdir /etc/ansible
 USER ansible
 WORKDIR /home/ansible
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
@@ -87,6 +88,8 @@ services:
 
         volumes:
             - ./ansible.cfg:/etc/ansible/ansible.cfg:rw
+            - ./hosts:/etc/ansible/hosts:rw
+            - ./collections:/home/ansible/.ansible/collections/ansible_collections:rw
             
         stdin_open: true # docker run -i
         tty: true        # docker run -t
