@@ -26,3 +26,9 @@ Ansible searches for configuration files in the following order, processing the 
     ansible.cfg if it’s in the current directory.
     ~/.ansible.cfg if it’s in the user’s home directory.
     /etc/ansible/ansible.cfg, the default config file.
+  
+# Regarding Collections
+You may need to install a collection before being able to mount the collections folder as a volume.  Do something like this:  
+    docker exec -it <container_name> ./ansible-galaxy collection install <collection_name>  
+then you could do:  
+    docker cp <container_name>:/home/ansible/.ansible/collections/ .
