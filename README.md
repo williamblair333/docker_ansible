@@ -29,6 +29,6 @@ Ansible searches for configuration files in the following order, processing the 
   
 # Regarding Collections
 You may need to install a collection before being able to mount the collections folder as a volume.  Do something like this:  
-    ```docker exec -it <container_name> ./ansible-galaxy collection install <collection_name>  ```
-then you could do:  
-    ```docker cp <container_name>:/home/ansible/.ansible/collections/ .```
+    ```docker exec -it <container_name> ./ansible-galaxy collection install <collection_name>```  
+Then you could do:  
+    ```docker cp <container_name>:/home/ansible/.ansible/collections/ .```  
