@@ -19,7 +19,7 @@ For wget (and maybe curl) to work, ca-certificates package needs to be installed
 Get the latest image at https://hub.docker.com/repository/registry-1.docker.io/williamblair333/ansible/general
 
 # Ansible .cfg Search Order
-From https://www.redhat.com/sysadmin/configuring-ansible
+From https://www.redhat.com/sysadmin/configuring-ansible  
 Ansible searches for configuration files in the following order, processing the first file it finds and ignoring the rest:
 
     $ANSIBLE_CONFIG if the environment variable is set.
