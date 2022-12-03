@@ -46,15 +46,16 @@ RUN useradd -m -s /bin/bash "ansible" \
 
 RUN mkdir /etc/ansible
 USER ansible
+
 WORKDIR /home/ansible
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN python3 get-pip.py --user
 RUN python3 -m pip install --user ansible-core==2.13
 RUN python3 -m pip install --user argcomplete
 
+USER ansible
 WORKDIR /home/ansible/.local/bin
 RUN ./activate-global-python-argcomplete --user
-
 RUN ./ansible --version
 
 RUN PATH=$PATH:/home/ansible/.local/bin
@@ -89,7 +90,9 @@ services:
         volumes:
             - ./ansible.cfg:/etc/ansible/ansible.cfg:rw
             - ./hosts:/etc/ansible/hosts:rw
-            - ./collections:/home/ansible/.ansible/collections/ansible_collections:rw
+            - ./collections:/home/ansible/.ansible/collections:rw
+            - ./playbooks:/home/ansible/.ansible/playbooks:rw
+            - ./roles:/home/ansible/.ansible/roles:rw
             
         stdin_open: true # docker run -i
         tty: true        # docker run -t
@@ -97,4 +100,7 @@ networks:
   <network_name>:
     external: true
 EOF
+#---------------------------------------------------------------------------------
+
+./ansible_set_alias.sh
 #---------------------------------------------------------------------------------
