@@ -21,7 +21,21 @@ Get the latest image at https://hub.docker.com/repository/registry-1.docker.io/w
 # Example Usage
 Create an alias in ~/.bashrc or ad-hoc to run commands as if ansible were installed:  
   
-```alias ansible='docker exec -it <container_name> ./ansible"$1"'```  
+```commands='ansible
+ansible-config
+ansible-connection
+ansible-console
+ansible-galaxy
+ansible-inventory
+ansible-playbook
+ansible-pull
+ansible-test
+ansible-vault'
+
+for command in $commands; do 
+    echo $command
+	alias $command='docker exec -it <container_name> ./"$command""$1"'
+done```  
 ```$ ansible --version```  
 ```ansible [core 2.13.0]
   config file = /etc/ansible/ansible.cfg
