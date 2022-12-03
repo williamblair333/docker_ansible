@@ -32,8 +32,10 @@ ansible-pull
 ansible-test
 ansible-vault'
 
+container_name='ansible'
+
 for command in $commands; do 
-    alias $command='docker exec -it <container_name> ./"$command""$1"'
+	alias $command="docker exec -it "$container_name" ./"$command""$1""
 done```  
 ```$ ansible --version```  
 ```ansible [core 2.13.0]
