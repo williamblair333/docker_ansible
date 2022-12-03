@@ -22,7 +22,7 @@ Get the latest image at https://hub.docker.com/repository/registry-1.docker.io/w
 Create an alias in ~/.bashrc or ad-hoc to run commands as if ansible were installed:  
   
 ```alias ansible='docker exec -it <container_name> ./ansible"$1"'```  
-$ ansible --version
+```$ ansible --version
 ansible [core 2.13.0]
   config file = /etc/ansible/ansible.cfg
   configured module search path = ['/home/ansible/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
@@ -31,4 +31,4 @@ ansible [core 2.13.0]
   executable location = ./ansible
   python version = 3.9.2 (default, Feb 28 2021, 17:03:44) [GCC 10.2.1 20210110]
   jinja version = 3.1.2
-  libyaml = True
+  libyaml = True```
