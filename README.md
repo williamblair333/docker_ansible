@@ -21,8 +21,8 @@ Get the latest image at https://hub.docker.com/repository/registry-1.docker.io/w
 # Example Usage
 Create an alias in ~/.bashrc or ad-hoc to run commands as if ansible were installed:  
   
-```commands='ansible  
-ansible-config
+```commands='ansible```  
+```ansible-config
 ansible-connection
 ansible-console
 ansible-galaxy
