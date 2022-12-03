@@ -8,7 +8,7 @@ Read over the docker_ansible_install.sh file and make changes accordingly.  Usin
 # Notes 
 For wget (and maybe curl) to work, ca-certificates package needs to be installed.  You may also need to destroy any external network you're using (along with containers that use it) and recreate the network setting the mtu to 1400~ish.  Here's an example  
     ```docker network create \```  
-        ```--driver=bridge \```  
+    ```--driver=bridge \```  
     ```--subnet=172.16.0.0/26 \```  
     ```--ip-range=172.16.0.0/27 \```  
     ```--gateway=172.16.0.1 \```  
