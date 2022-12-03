@@ -18,17 +18,6 @@ For wget (and maybe curl) to work, ca-certificates package needs to be installed
 # Image
 Get the latest image at https://hub.docker.com/repository/registry-1.docker.io/williamblair333/ansible/general
 
-# Ansible .cfg Search Order
-From https://www.redhat.com/sysadmin/configuring-ansible  
-Ansible searches for configuration files in the following order, processing the first file it finds and ignoring the rest:
-
-    $ANSIBLE_CONFIG if the environment variable is set.
-    ansible.cfg if it’s in the current directory.
-    ~/.ansible.cfg if it’s in the user’s home directory.
-    /etc/ansible/ansible.cfg, the default config file.
-  
-# Regarding Collections
-You may need to install a collection before being able to mount the collections folder as a volume.  Do something like this:  
-    ```docker exec -it <container_name> ./ansible-galaxy collection install <collection_name>```  
-Then you could do:  
-    ```docker cp <container_name>:/home/ansible/.ansible/collections/ .```  
+# Example Usage
+Create an alias in ~/.bashrc or ad-hoc to run commands as if ansible were installed:  
+	alias ansible='docker exec -it <container_name> ./ansible"$1"'
