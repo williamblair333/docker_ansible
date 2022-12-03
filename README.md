@@ -23,7 +23,7 @@ Create an alias in ~/.bashrc or ad-hoc to run commands as if ansible were instal
   
 ```alias ansible='docker exec -it <container_name> ./ansible"$1"'```  
 ````$ alias ansible='docker exec -it ansible_ansible_1 ./ansible"$1"'
-bill@tc-vmh-03:/opt/docker/ansible
+williamblair333@server:/path/to/ansible
 $ ansible --version
 ansible [core 2.13.0]
   config file = /etc/ansible/ansible.cfg
