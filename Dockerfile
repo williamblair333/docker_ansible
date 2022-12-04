@@ -6,7 +6,7 @@ RUN apt-get --quiet --quiet --yes update
 RUN apt-get --quiet --quiet --yes --no-install-recommends \
     --option "DPkg::Options::=--force-confold" \
     --option "DPkg::Options::=--force-confdef" \
-    install apt-utils ca-certificates curl python3-pip liblinux-usermod-perl passwd
+    install apt-utils ca-certificates curl python3-pip liblinux-usermod-perl passwd ssl
 RUN apt-get --quiet --quiet --yes autoremove
 RUN apt-get --quiet --quiet --yes clean
 RUN rm -rf /var/lib/apt/lists/* 1>/dev/null
