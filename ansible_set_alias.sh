@@ -10,6 +10,7 @@ commands='ansible
 ansible-config
 ansible-connection
 ansible-console
+ansible-doc
 ansible-galaxy
 ansible-inventory
 ansible-playbook
