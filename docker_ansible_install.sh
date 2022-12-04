@@ -58,7 +58,7 @@ WORKDIR /home/ansible/.local/bin
 RUN ./activate-global-python-argcomplete --user
 RUN ./ansible --version
 
-ENV PATH="$PATH:/home/ansible/.local/bin"
+ENV PATH="$PATH:/home/ansible/.local/bin:/home/ansible/.ansible"
 
 #CMD ["sh", "./ansible"]
 #use this to run container forever if you need to troubleshoot
@@ -95,6 +95,7 @@ services:
             - ./collections:/home/ansible/.ansible/collections:rw
             - ./playbooks:/home/ansible/.ansible/playbooks:rw
             - ./roles:/home/ansible/.ansible/roles:rw
+            - ./tasks:/home/ansible/.ansible/tasks:rw
             
         stdin_open: true # docker run -i
         tty: true        # docker run -t
