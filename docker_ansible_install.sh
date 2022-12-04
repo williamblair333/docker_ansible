@@ -35,7 +35,7 @@ RUN apt-get --quiet --quiet --yes update
 RUN apt-get --quiet --quiet --yes --no-install-recommends \
     --option "DPkg::Options::=--force-confold" \
     --option "DPkg::Options::=--force-confdef" \
-    install apt-utils ca-certificates curl python3-pip liblinux-usermod-perl passwd
+    install apt-utils ca-certificates curl liblinux-usermod-perl python3-pip passwd ssh
 RUN apt-get --quiet --quiet --yes autoremove
 RUN apt-get --quiet --quiet --yes clean
 RUN rm -rf /var/lib/apt/lists/* 1>/dev/null
@@ -58,7 +58,8 @@ WORKDIR /home/ansible/.local/bin
 RUN ./activate-global-python-argcomplete --user
 RUN ./ansible --version
 
-RUN PATH=$PATH:/home/ansible/.local/bin
+ENV PATH="$PATH:/home/ansible/.local/bin"
+
 #CMD ["sh", "./ansible"]
 #use this to run container forever if you need to troubleshoot
 #this should be just fine for ansible too
@@ -89,6 +90,7 @@ services:
 
         volumes:
             - ./ansible.cfg:/etc/ansible/ansible.cfg:rw
+            - ./.ssh:/home/ansible/.ssh:rw            
             - ./hosts:/etc/ansible/hosts:rw
             - ./collections:/home/ansible/.ansible/collections:rw
             - ./playbooks:/home/ansible/.ansible/playbooks:rw

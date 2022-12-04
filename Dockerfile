@@ -29,7 +29,8 @@ WORKDIR /home/ansible/.local/bin
 RUN ./activate-global-python-argcomplete --user
 RUN ./ansible --version
 
-RUN PATH=$PATH:/home/ansible/.local/bin
+ENV PATH="$PATH:/home/ansible/.local/bin"
+
 #CMD ["sh", "./ansible"]
 #use this to run container forever if you need to troubleshoot
 #this should be just fine for ansible too
