@@ -20,7 +20,7 @@ Get the latest image at https://hub.docker.com/repository/registry-1.docker.io/w
 
 # Example Usage
 
-Your script ansible calls can look something like this (creating a role):
+Your script ansible calls can look something like this (creating a role):  
 ```docker exec -it ansible_ansible_1 /bin/bash -c 'ansible-galaxy role init ~/.ansible/roles/kvm_provision'```  
   
 Create an alias in ~/.bashrc or ad-hoc to run commands as if ansible were installed:  
