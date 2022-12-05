@@ -3,7 +3,7 @@
 --guide here https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 
 # Setup 
-Read over the docker_ansible_install.sh file and make changes accordingly.  Using pip3 instead of Debian packages.  Running that file will create the Dockerfile, its image and a docker-compose.yaml file.  Don't forget to chmod +x docker_simplehelp_install.sh. The provided Dockerfile and docker-compose.yaml are examples.
+Read over the docker_ansible_install.sh file and make changes accordingly.  Using pip3 instead of Debian packages.  Running that file will create the Dockerfile, its image and a docker-compose.yaml file.  Don't forget to chmod +x the executable .sh files. The provided Dockerfile and docker-compose.yaml are examples.
 
 # Notes 
 For wget (and maybe curl) to work, ca-certificates package needs to be installed.  You may also need to destroy any external network you're using (along with containers that use it) and recreate the network setting the mtu to 1400~ish.  Here's an example  
