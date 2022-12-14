@@ -5,7 +5,7 @@
 # Setup 
 Read over the docker_ansible_install.sh file and make changes accordingly.  Using pip3 instead of Debian packages.  Running that file will create the Dockerfile, its image and a docker-compose.yaml file.  Don't forget to chmod +x the executable .sh files. The provided Dockerfile and docker-compose.yaml are examples.
 
-# Notes 
+# Notes on curls and wgets
 For wget (and maybe curl) to work, ca-certificates package needs to be installed.  You may also need to destroy any external network you're using (along with containers that use it) and recreate the network setting the mtu to 1400~ish.  Here's an example  
     ```docker network create \```  
     ```--driver=bridge \```  
@@ -17,6 +17,11 @@ For wget (and maybe curl) to work, ca-certificates package needs to be installed
   
 # Image
 Get the latest image at https://hub.docker.com/repository/registry-1.docker.io/williamblair333/ansible/general
+
+# Note on Alias Usage
+
+Precede any scripts with a . before running any scripts that might rely on aliases.  The best thing to do for production / permanent files would be functions though.  Here is an example of using the "dot command" to make your environment accessible to scripts.  
+```. ./your_script.sh```  
 
 # Example Usage
 
